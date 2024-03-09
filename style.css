@@ -1,0 +1,29 @@
+body{
+  font-family: 'Courier New', monospace;
+  background: #313131;
+  color: #fff;
+}
+a{
+  text-decoration: none;
+  color: #25f3bf
+} 
+p {
+word-spacing: 5px;
+}
+.cont{
+  backdrop-filter: blur(10px);
+  border: 1px solid;
+  border-radius: 1px;
+  padding: 1%;
+}
+.idk{
+  display: inline-block;
+}
+
+.idk a {
+  display: inline-block;
+  color: aqua;
+  font-size: 150%;
+  font-weight: bold;
+   padding: 0 3px;
+}
