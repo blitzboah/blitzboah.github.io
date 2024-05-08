@@ -1,15 +1,17 @@
 body{
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: bold;
+  font-family: 'Space Mono', monospace;
+  font-weight: 300;
+  font-size: 20px;
+  font-style: normal;
   background: "black";
   color: #fff;
 }
 a{
   text-decoration: none;
-  color: #25f3bf
+  color: #25f3bf;
 } 
 p {
-word-spacing: 5px;
+word-spacing: 6px;
 }
 .cont{
   position: relative;
@@ -24,7 +26,7 @@ word-spacing: 5px;
 
 .idk a {
   display: inline-block;
-  color: aqua;
+  color: #25f3bf;
   font-size: 150%;
   font-weight: bold;
    padding: 0 3px;
