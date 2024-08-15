@@ -1,26 +1,33 @@
-body{
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
   font-family: 'Space Mono', monospace;
   font-weight: 300;
   font-size: 20px;
   font-style: normal;
-  background: "black";
+  background: black;
   color: #fff;
 }
-a{
+
+a {
   text-decoration: none;
-  color: #25f3bf;
+  color: #07a7eb;
 } 
+
 p {
-word-spacing: 6px;
+  word-spacing: 6px;
 }
-.cont{
-  position: relative;
-  backdrop-filter: blur(10px);
-  border: 1px solid;
-  border-radius: 1px;
-  padding: 1%;
+
+.cont {
+  text-align: left;
+  max-width: 800px;
+  padding: 20px;
 }
-.idk{
+
+.idk {
   display: inline-block;
 }
 
@@ -29,19 +36,17 @@ word-spacing: 6px;
   color: #25f3bf;
   font-size: 150%;
   font-weight: bold;
-   padding: 0 3px;
+  padding: 0 3px;
 }
 
-.button{
-  /* background-image: url('./muun.svg'); */
+.button {
   background-color: #fff;
   padding: 2px;
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  width: 10px;
-  height: 10px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
   border: solid black 2px;
-  display: inline-block;
-  transform: translateY(-50%)
+  cursor: pointer;
 }
