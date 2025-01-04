@@ -5,59 +5,81 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'JetBrains Mono';
-  src: url('./fonts/JetBrainsMono-ExtraBold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'JetBrains Mono';
-  src: url('./fonts/JetBrainsMono-ExtraItalic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-}
 
 body {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
   margin: 0;
-  font-family: 'JetBrains Mono';
-  font-weight: 400;
-  font-size: 20px;
-  font-style: normal;
+  padding: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
   background: black;
   color: #fff;
 }
 
-a {
-  text-decoration: none;
-  color: #07a7eb;
-} 
-
-p {
-  word-spacing: 6px;
-}
-
 .cont {
-  text-align: left;
   max-width: 800px;
-  padding: 20px;
+  width: 100%;
 }
 
-.idk {
-  display: inline-block;
+.nav {
+  margin-bottom: 40px;
 }
 
-.idk a {
-  display: inline-block;
-  color: #25f3bf;
+.nav a {
+  color: #fff;
   font-size: 150%;
   font-weight: bold;
-  padding: 0 3px;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.directory-structure {
+  margin-left: 20px;
+}
+
+.directory-structure ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.directory-structure > ul {
+  padding-left: 0;
+}
+
+.directory-structure li {
+  position: relative;
+  padding-left: 20px;
+  line-height: 1.5;
+}
+
+.directory-structure li:before {
+  content: "├─";
+  position: absolute;
+  left: 0;
+  color: #fff;
+}
+
+.directory-structure li:last-child:before {
+  content: "└─";
+}
+
+.directory-structure a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.directory-structure a:hover {
+  color: #7CB9E8;
+  text-decoration: underline;
+}
+
+.directory-structure li > ul > li {
+  font-weight: bold;
 }
 
 .button {
@@ -72,9 +94,30 @@ p {
   cursor: pointer;
 }
 
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+.idk {
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.idk a {
+  color: white;
+  text-decoration: none;
+}
+
+.idk.selected {
+  color: aquamarine;
+}
+
+.idk a:hover,
+.idk a:focus {
+  color: aquamarine;
+  text-decoration: none;
+}
+
+.directory-structure li {
+  margin-bottom: 10px;
 }
