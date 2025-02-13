@@ -1,0 +1,58 @@
+{
+    "builds": [
+      {
+        "name": "type-throttle",
+        "url": "https://blitz31.itch.io/type-throttle",
+        "tech": "unity, c#",
+        "description": "a typing game but with cars 3D yessir. basically you are racing with a bot car that competes with you and type to beat that bot. it can be adaptive based on user's choice for more competitive feeling. it runs on browswer yay :D"
+      },
+      {
+        "name": "cosmic-colonizer",
+        "url": "https://blitz31.itch.io/cosmic-colonizer",
+        "tech": "unity, c#",
+        "description": "a game in space where u start on earth, collect resources enough to travel all planets. and then collecting resources to build dyson sphere (no dyson sphere in actual game tho i was lazy to make)."
+      },
+      {
+        "name": "space-game",
+        "url": "https://blitz31.itch.io/space-game",
+        "tech": "unity, c#",
+        "description": "a simple space themed game, where you control your spaceship and dodge incoming asteroids."
+      },
+      {
+        "name": "smash-or-pass:door-edition",
+        "url": "https://blitz31.itch.io/smash-or-pass-door-edition",
+        "tech": "unity, c#",
+        "description": "a reflex based game where there are series of doors coming in front, only one of them is right, the speed gradually increases overtime."
+      },
+      {
+        "name": "hardimages",
+        "url": "https://hardimages.vercel.app",
+        "tech": "react js, spring boot, postgresql, aws s3, google oauth 2.0",
+        "description": "a collection of the images that goes really hard"
+      },
+      {
+        "name": "memedb",
+        "url": "https://memedb69.vercel.app",
+        "tech": "react js, indexeddb",
+        "description": "a database for your memes, for quick access of memes."
+      },
+      {
+        "name": "blogtube",
+        "url": "https://github.com/blitzboah/blogtube",
+        "tech": "python, pytorch, ffmpeg, jsoup, coqui tts",
+        "description": "blog turned into yt shorts or vidoes. enter the blog link, it will scrape the blog, then it will summarize or keep it as is, depending upon your choice. then uses coqui tts for TTS lamao, then it slaps all the content on a video with subtitles using ffmpeg"
+      },
+      {
+        "name": "watchdawg",
+        "url": "https://github.com/blitzboah/watchdawg",
+        "tech": "js",
+        "description": "a popup extension to keep reminding not to waste time on sites that i am addicted to ;("
+      },
+      {
+        "name": "raytracing",
+        "url": "https://github.com/blitzboah/raytracing",
+        "tech": "java",
+        "description": "raytracing. followed a book named - raytracing in one weekend. i used java to feel something and generated really cool renders :D, this was suggested by ludwigABAP on x dot com. thanks to him, i keep learning new stuff."
+      }
+    ]
+  }

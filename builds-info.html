@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>info</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/image-folder/kek.jpg">
+    <style>
+        body {
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        #builds-info h2 {
+            margin-bottom: 20px;
+            color: #FF00FF;
+            text-shadow: 3px 3px 0px rgba(255, 0, 255, 0.3);
+            padding: 10px;
+            border: 2px solid #FF00FF;
+            display: inline-block;
+            background: rgba(255, 0, 255, 0.1);
+        }
+
+        #builds-info p {
+            color: #fff;
+            margin: 15px 0;
+            padding: 8px;
+        }
+
+        #builds-info .url-container {
+            border-left: 4px solid #1E90FF;
+            padding-left: 15px;
+        }
+
+        #builds-info .url-container a {
+            color: #fff;
+            transition: all 0.2s ease;
+        }
+
+        #builds-info .url-container strong {
+            color: #00FFFF;
+            transition: all 0.2s ease;
+        }
+
+        #builds-info .url-container a:hover {
+            background: #00FFFF;
+            color: #000000;
+            padding: 2px 5px;
+            transform: scale(1.05);
+            text-shadow: none;
+        }
+
+        #builds-info .desc-container {
+            border-top: 2px dashed rgba(255, 0, 255, 0.3);
+            margin-top: 20px;
+            padding-top: 15px;
+        }
+
+        #builds-info .desc-container strong {
+            color: #1E90FF;
+        }
+
+        #builds-info h2:hover {
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+            transition: all 0.2s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cont">
+        <div class="nav">
+            <p><a href="index.html">builds</a>
+                <a href="blitzblog.html">post</a>
+                <a href="about.html">about</a>
+            </p>
+        </div>
+        <div class="directory-structure" page="///">
+            <ul>
+                <li id="builds-info">
+                    <!-- info -->
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const buildName = urlParams.get('build');
+
+            fetch('builds.json')
+                .then(response => response.json())
+                .then(data => {
+                    const build = data.builds.find(p => p.name === buildName);
+                    if (build) {
+                        const buildInfo = document.getElementById('builds-info');
+                        buildInfo.innerHTML = `
+                            <h2>${build.name}</h2> <br>
+                            <div class="url-container">
+                                <p><strong>tech:</strong> ${build.tech}</p>
+                            </div>
+                            <div class="url-container">
+                                <p><strong>url:</strong> <a href="${build.url}" target="_blank">${build.url}</a></p>
+                            </div>
+                            <div class="desc-container">
+                                <p><strong>description:</strong> ${build.description}</p>
+                            </div>
+                        `;
+                    }
+                });
+        });
+    </script>
+</body>
+
+</html>
