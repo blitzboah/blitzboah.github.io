@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>/post</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/image-folder/kek.jpg">
+    <style>
+        h2{
+            border-left: 4px solid #1E90FF;
+            color: #1E90FF;
+            padding-left: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cont">
+        <div class="nav">
+            <p>
+                <a href="index.html">builds</a>
+                <a href="posts.html">post</a>
+                <a href="about.html">about</a>
+            </p>
+        </div>
+        <div class="directory-structure" page="x">
+            <!-- content inserted here -->
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const response = await fetch('posts.json');
+            const data = await response.json();
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const currentSlug = urlParams.get('slug') || data.posts[0].slug;
+
+            const post = data.posts.find(p => p.slug === currentSlug);
+            if (!post) return;
+
+            const contentDiv = document.querySelector('.directory-structure');
+            contentDiv.innerHTML = `
+    <h2>${post.title}</h2>
+    ${post.content.map(block => {
+                switch (block.type) {
+                    case 'text':
+                        return `<p>${block.content}</p>`;
+                    case 'image':
+                        return `
+            <img src="${block.src}" alt="${block.alt}" class="center">
+            <br>
+          `;
+                    case 'link':
+                        return `<a href="${block.href}">${block.text}</a>`;
+                    default:
+                        return '';
+                }
+            }).join('')}
+  `;
+        });
+    </script>
+</body>
+
+</html>

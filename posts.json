@@ -1,0 +1,57 @@
+{
+  "posts": [
+    {
+      "slug": "overcoming-slop",
+      "title": "how to overcome mediocrity or skill issues",
+      "content": [
+        {
+          "type": "text",
+          "content": "just by putting in more hours, thats it. like it or not thats the way ig, you can do it fast tho but you need to put in more hours someday. i learnt this in hard way.\n\ni still haven't overcome my skill issues yet btw."
+        },
+        {
+          "type": "image",
+          "src": "./image-folder/iiwii.png",
+          "alt": "iiwii"
+        },
+        {
+          "type": "text",
+          "content": "also keep doing the bit."
+        },
+        {
+          "type": "image",
+          "src": "./image-folder/keep_doing_the_bit.png",
+          "alt": "bit"
+        },
+        {
+          "type": "link",
+          "text": "image credits",
+          "href": "https://x.com/dejavucoder/status/1671025162391814144"
+        }
+      ]
+    },
+    {
+      "slug": "i-should-write-more",
+      "title": "i should write more type shi",
+      "content": [
+        {
+          "type": "text",
+          "content": "i should write more, i want to get better at articulating my thoughts. i poast on x dot com pretty vague lamao, i just can't write exactly what i think. so maybe i can fix this by writing more here or on x dot com"
+        },
+        {
+          "type": "image",
+          "src": "image-folder/i-should-cat.jpg",
+          "alt": "car"
+        },
+        {
+          "type": "text",
+          "content": "i should really stop vague poasting on x, i really suck at poasting on x, all i do is post some random shi sometimes i can't even understand what did i wrote llamao"
+        },
+        {
+          "type": "image",
+          "src": "image-folder/bb-writing.png",
+          "alt": "bb-writing"
+        }
+      ]
+    }
+  ]
+}
