@@ -8,11 +8,11 @@ body {
   margin: 0;
   padding: 20px;
   font-family: 'Press Start 2P', monospace;
-  font-size: 14px;
+  font-size: 18px;
   background-color: #000000;
   color: #ffffff;
-  line-height: 1.6;
-  text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.1);
+  line-height: 1.8;
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.2);
   background-image: 
     linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
@@ -51,7 +51,7 @@ body {
 
 .nav a {
   color: #fff;
-  font-size: 14px;
+  font-size: 16px;
   text-decoration: none;
   margin-right: 30px;
   padding: 5px 10px;
@@ -102,7 +102,9 @@ body {
   padding-left: 20px;
   margin-bottom: 15px;
   transition: transform 0.2s ease;
-}
+  font-size: 16px;
+  line-height: 1.6;
+} 
 
 .directory-structure li.blink-arrow:before {
   content: ">";
@@ -121,6 +123,8 @@ body {
   transition: all 0.2s ease;
   display: inline-block;
   padding: 2px 5px;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 .directory-structure a:hover {
@@ -149,20 +153,6 @@ body {
   background: #ffffff;
   color: #000000;
   transform: scale(1.1);
-}
-
-.idk {
-  color: #ffffff;
-  cursor: pointer;
-  font-size: 20px;
-  margin-bottom: 20px;
-  padding: 5px;
-  border: 2px solid transparent;
-}
-
-.idk.selected {
-  border-color: #ffffff;
-  animation: pulse 2s infinite;
 }
 
 img {
