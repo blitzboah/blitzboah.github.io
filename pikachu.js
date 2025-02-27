@@ -1,26 +1,26 @@
 const pikachu = document.getElementById("pikachu");
 const cursorRadius = 75;
-const speed = 1.5; // Movement speed
+const speed = 1; // Movement speed
 const frameDelay = 40; // Increased delay for slower animation
 const movementStartDelay = 15; // Delay before animation starts
 const mouseMovementDelay = 15; // Delay before following new mouse position
 
 const sprites = {
     left: { 
-        move: "/image-folder/left-move.png",
-        stand: "/image-folder/left-stand.png" 
+        move: "image-folder/left-move.png",
+        stand: "image-folder/left-stand.png" 
     },
     right: { 
-        move: "/image-folder/right-move.png",
-        stand: "/image-folder/right-stand.png" 
+        move: "image-folder/right-move.png",
+        stand: "image-folder/right-stand.png" 
     },
     up: { 
-        move: ["/image-folder/back-move-1.png", "/image-folder/back-move-2.png"], 
-        stand: "/image-folder/back-stand.png" 
+        move: ["image-folder/back-move-1.png", "image-folder/back-move-2.png"], 
+        stand: "image-folder/back-stand.png" 
     },
     down: { 
-        move: ["/image-folder/front-move-1.png", "/image-folder/front-move-2.png"], 
-        stand: "/image-folder/front-stand.png" 
+        move: ["image-folder/front-move-1.png", "image-folder/front-move-2.png"], 
+        stand: "image-folder/front-stand.png" 
     }
 };
 
@@ -39,8 +39,8 @@ pikachu.style.position = "fixed"; // Use fixed positioning to stay on top
 pikachu.style.left = pikachu.style.left || "10px";
 pikachu.style.top = pikachu.style.top || "10px";
 pikachu.style.imageRendering = "pixelated";
-pikachu.style.width = "40px";
-pikachu.style.height = "40px";
+pikachu.style.width = "35px";
+pikachu.style.height = "35px";
 pikachu.style.zIndex = "9999"; // High z-index to ensure it's on top
 pikachu.style.pointerEvents = "none"; // Allow clicks to pass through Pikachu
 
