@@ -1,10 +1,11 @@
 const pikachu = document.getElementById("pikachu");
 const cursorRadius = 75;
-const speed = 1; // Movement speed
+const speed = 1.5; // Movement speed
 const frameDelay = 40; // Increased delay for slower animation
 const movementStartDelay = 15; // Delay before animation starts
 const mouseMovementDelay = 15; // Delay before following new mouse position
 
+// Changed all paths to relative (removed leading slash)
 const sprites = {
     left: { 
         move: "image-folder/left-move.png",
@@ -24,6 +25,43 @@ const sprites = {
     }
 };
 
+// Preload all images to ensure they're available before animation starts
+function preloadImages() {
+    console.log("Preloading images...");
+    const allImages = [];
+    
+    for (const direction in sprites) {
+        if (typeof sprites[direction].move === 'string') {
+            allImages.push(sprites[direction].move);
+        } else if (Array.isArray(sprites[direction].move)) {
+            allImages.push(...sprites[direction].move);
+        }
+        allImages.push(sprites[direction].stand);
+    }
+    
+    let loadedCount = 0;
+    const totalImages = allImages.length;
+    
+    return new Promise((resolve) => {
+        allImages.forEach(src => {
+            const img = new Image();
+            img.onload = () => {
+                loadedCount++;
+                if (loadedCount === totalImages) {
+                    resolve();
+                }
+            };
+            img.onerror = () => {
+                loadedCount++;
+                if (loadedCount === totalImages) {
+                    resolve();
+                }
+            };
+            img.src = src;
+        });
+    });
+}
+
 let targetX = 100;
 let targetY = 100;
 let lastMouseX = 100;
@@ -39,8 +77,8 @@ pikachu.style.position = "fixed"; // Use fixed positioning to stay on top
 pikachu.style.left = pikachu.style.left || "10px";
 pikachu.style.top = pikachu.style.top || "10px";
 pikachu.style.imageRendering = "pixelated";
-pikachu.style.width = "35px";
-pikachu.style.height = "35px";
+pikachu.style.width = "40px";
+pikachu.style.height = "40px";
 pikachu.style.zIndex = "9999"; // High z-index to ensure it's on top
 pikachu.style.pointerEvents = "none"; // Allow clicks to pass through Pikachu
 
@@ -113,5 +151,8 @@ function movePikachu() {
 
     requestAnimationFrame(movePikachu);
 }
-
-movePikachu();
+preloadImages().then(() => {
+    movePikachu();
+}).catch(error => {
+    console.error("Error in preloading:", error);
+});
