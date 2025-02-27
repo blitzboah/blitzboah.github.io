@@ -19,6 +19,14 @@ body {
   background-size: 20px 20px;
 }
 
+#pikachu {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 10px;
+  top: 10px;
+}
+
 .cont {
   max-width: 900px;
   width: 100%;
