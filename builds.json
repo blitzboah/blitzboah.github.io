@@ -53,6 +53,12 @@
         "url": "https://github.com/blitzboah/raytracing",
         "tech": "java",
         "description": "raytracing. followed a book named - raytracing in one weekend. i used java to feel something and generated really cool renders :D, this was suggested by ludwigABAP on x dot com. thanks to him, i keep learning new stuff."
+      },
+      {
+        "name": "gitz",
+        "url": "https://github.com/blitzboah/gitz",
+        "tech": "java, ffmpeg",
+        "description": "an attempt at git implementation to learn its internals, following 'write yourself a git', with commit images for shits and giggles"
       }
     ]
   }
