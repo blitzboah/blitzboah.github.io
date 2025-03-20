@@ -57,7 +57,7 @@
       {
         "name": "gitz",
         "url": "https://github.com/blitzboah/gitz",
-        "tech": "java, ffmpeg",
+        "tech": "java, ffmpeg, chafa",
         "description": "an attempt at git implementation to learn its internals, following 'write yourself a git', with commit images for shits and giggles"
       }
     ]

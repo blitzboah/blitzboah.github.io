@@ -27,7 +27,6 @@ const sprites = {
 
 // Preload all images to ensure they're available before animation starts
 function preloadImages() {
-    console.log("Preloading images...");
     const allImages = [];
     
     for (const direction in sprites) {
