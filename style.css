@@ -109,7 +109,7 @@ body {
 }
 
 .directory-structure li {
-  color: #1E90FF;
+  color: #00BFFF;
   position: relative;
   padding-left: 20px;
   margin-bottom: 15px;
@@ -141,7 +141,7 @@ body {
 }
 
 .directory-structure a:hover {
-  background: #FF10F0;
+  background: #CCE7FC;
   color: #000000;
   transform: scale(1.05);
 }
