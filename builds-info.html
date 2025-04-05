@@ -100,6 +100,29 @@
                     const build = data.builds.find(p => p.name === buildName);
                     if (build) {
                         const buildInfo = document.getElementById('builds-info');
+
+                        let mediaHTML = '';
+
+                        if (build.video && build.video.length > 0) {
+                            build.video.forEach(videoSrc => {
+                                mediaHTML += `
+                                <div class="video-container">
+                                    <video autoplay muted loop playsinline controls>
+                                        <source src="${videoSrc}" type="video/mp4">
+                                    </video>
+                                </div>
+                                `;
+                            });
+                        }
+
+                        if (build.image && build.image.length > 0) {
+                            mediaHTML += '<div class="image-container">';
+                            build.image.forEach(imgSrc => {
+                                mediaHTML += `<img src="${imgSrc}" alt="${build.name}" />`;
+                            });
+                            mediaHTML += '</div>';
+                        }
+
                         buildInfo.innerHTML = `
                             <h2>${build.name}</h2> <br>
                             <div class="url-container">
@@ -111,6 +134,7 @@
                             <div class="desc-container">
                                 <p><strong>description:</strong> ${build.description}</p>
                             </div>
+                            ${mediaHTML}
                         `;
                     }
                 });

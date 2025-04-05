@@ -4,7 +4,8 @@
         "name": "type-throttle",
         "url": "https://blitz31.itch.io/type-throttle",
         "tech": "unity, c#",
-        "description": "a typing game but with cars 3D yessir. basically you are racing with a bot car that competes with you and type to beat that bot. it can be adaptive based on user's choice for more competitive feeling. it runs on browswer yay :D"
+        "description": "a typing game but with cars 3D yessir. basically you are racing with a bot car that competes with you and type to beat that bot. it can be adaptive based on user's choice for more competitive feeling. it runs on browswer yay :D",
+        "video": ["image-folder/type-throttle.mp4"]
       },
       {
         "name": "cosmic-colonizer",
@@ -28,37 +29,43 @@
         "name": "hardimages",
         "url": "https://hardimages.vercel.app",
         "tech": "react js, spring boot, postgresql, aws s3, google oauth 2.0",
-        "description": "a collection of the images that goes really hard"
+        "description": "a collection of the images that goes really hard",
+        "image": ["image-folder/hardimages.png"]
       },
       {
         "name": "memedb",
         "url": "https://memedb69.vercel.app",
         "tech": "react js, indexeddb",
-        "description": "a database for your memes, for quick access of memes."
+        "description": "a database for your memes, for quick access of memes.",
+        "image": ["image-folder/memedb.jpeg"]
       },
       {
         "name": "blogtube",
         "url": "https://github.com/blitzboah/blogtube",
         "tech": "python, pytorch, ffmpeg, jsoup, coqui tts",
-        "description": "blog turned into yt shorts or vidoes. enter the blog link, it will scrape the blog, then it will summarize or keep it as is, depending upon your choice. then uses coqui tts for TTS lamao, then it slaps all the content on a video with subtitles using ffmpeg"
+        "description": "blog turned into yt shorts or vidoes. enter the blog link, it will scrape the blog, then it will summarize or keep it as is, depending upon your choice. then uses coqui tts for TTS lamao, then it slaps all the content on a video with subtitles using ffmpeg",
+        "video": ["image-folder/blogtube-1.mp4", "image-folder/blogtube-2.mp4"]
       },
       {
         "name": "watchdawg",
         "url": "https://github.com/blitzboah/watchdawg",
         "tech": "js",
-        "description": "a popup extension to keep reminding not to waste time on sites that i am addicted to ;("
+        "description": "a popup extension to keep reminding not to waste time on sites that i am addicted to ;(",
+        "image": ["image-folder/watchdawg.png"]
       },
       {
         "name": "raytracing",
         "url": "https://github.com/blitzboah/raytracing",
         "tech": "java",
-        "description": "raytracing. followed a book named - raytracing in one weekend. i used java to feel something and generated really cool renders :D, this was suggested by ludwigABAP on x dot com. thanks to him, i keep learning new stuff."
+        "description": "raytracing. followed a book named - raytracing in one weekend. i used java to feel something and generated really cool renders :D, this was suggested by ludwigABAP on x dot com. thanks to him, i keep learning new stuff.",
+        "image": ["image-folder/r2.png", "image-folder/r3.png", "image-folder/r4.png", "image-folder/r5.png"]
       },
       {
         "name": "gitz",
         "url": "https://github.com/blitzboah/gitz",
         "tech": "java, ffmpeg, chafa",
-        "description": "an attempt at git implementation to learn its internals, following 'write yourself a git', with commit images for shits and giggles"
+        "description": "an attempt at git implementation to learn its internals, following 'write yourself a git', with commit images for shits and giggles",
+        "video": ["image-folder/gitz.mp4"]
       }
     ]
   }
