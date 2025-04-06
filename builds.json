@@ -8,22 +8,10 @@
         "video": ["image-folder/type-throttle.mp4"]
       },
       {
-        "name": "cosmic-colonizer",
-        "url": "https://blitz31.itch.io/cosmic-colonizer",
-        "tech": "unity, c#",
-        "description": "a game in space where u start on earth, collect resources enough to travel all planets. and then collecting resources to build dyson sphere (no dyson sphere in actual game tho i was lazy to make)."
-      },
-      {
         "name": "space-game",
         "url": "https://blitz31.itch.io/space-game",
         "tech": "unity, c#",
-        "description": "a simple space themed game, where you control your spaceship and dodge incoming asteroids."
-      },
-      {
-        "name": "smash-or-pass:door-edition",
-        "url": "https://blitz31.itch.io/smash-or-pass-door-edition",
-        "tech": "unity, c#",
-        "description": "a reflex based game where there are series of doors coming in front, only one of them is right, the speed gradually increases overtime."
+        "description": "a simple space game, where you control your spaceship and dodge incoming asteroids, yeah thats it. tbh this game is very poorly made cuz i didnt knew shit when i was doing ts"
       },
       {
         "name": "hardimages",
@@ -57,7 +45,7 @@
         "name": "raytracing",
         "url": "https://github.com/blitzboah/raytracing",
         "tech": "java",
-        "description": "raytracing. followed a book named - raytracing in one weekend. i used java to feel something and generated really cool renders :D, this was suggested by ludwigABAP on x dot com. thanks to him, i keep learning new stuff.",
+        "description": "raytracing. followed a book named - raytracing in one weekend. i used java to feel something and generated really cool renders :D, this was suggested by ludwigABAP on x dot com. thanks to him, i keep learning new stuff. also if you wanna try this i suggest pls dont, i takes a lot of time to render, as its not multithreaded.",
         "image": ["image-folder/r2.png", "image-folder/r3.png", "image-folder/r4.png", "image-folder/r5.png"]
       },
       {
