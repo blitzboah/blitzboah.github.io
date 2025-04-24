@@ -17,15 +17,15 @@
 </head>
 
 <body>
-    <div class="cont">
-        <div class="nav">
+    <div class="main">
+        <div class="left">
             <p>
                 <a href="index.html">builds</a>
                 <a href="posts.html">post</a>
                 <a href="about.html">about</a>
             </p>
         </div>
-        <div class="directory-structure" page="x">
+        <div class="right" page="x">
             <!-- content inserted here -->
         </div>
     </div>
@@ -40,13 +40,13 @@
             const post = data.posts.find(p => p.slug === currentSlug);
             if (!post) return;
 
-            const contentDiv = document.querySelector('.directory-structure');
+            const contentDiv = document.querySelector('.right');
             contentDiv.innerHTML = `
     <h2>${post.title}</h2>
-    ${post.content.map(block => {
+    ${postmainent.map(block => {
                 switch (block.type) {
                     case 'text':
-                        return `<p>${block.content}</p>`;
+                        return `<p>${blockmainent}</p>`;
                     case 'image':
                         return `
             <img src="${block.src}" alt="${block.alt}" class="center">

@@ -49,7 +49,7 @@ body::-webkit-scrollbar {
   display: flex;
   flex-direction: row;
   max-width: 100%;
-  min-height: 100vh;
+  min-height: 95vh;
   height: 100%;
   width: 100%;
   padding: 20px;
@@ -106,26 +106,14 @@ body::-webkit-scrollbar {
 }
 
 .directory-structure {
-  flex: 1;
-  overflow-y: auto;
-  height: 100%;
-  scrollbar-width: none;
-  width: 90%;
-  margin-bottom: 0;
-  padding: 20px;
-  background: #000000;
-  border: 4px solid #ffffff;
   position: relative;
+  width: 90%;
+  border: 4px solid #ffffff;
+  background: #000000;
+  padding: 20px;
+  margin-bottom: 0;
+  flex: 1;
   overflow: visible;
-}
-
-.directory-content {
-  height: 100%;
-  overflow-y: auto;
-}
-
-.directory-structure::-webkit-scrollbar {
-  display: none;
 }
 
 .directory-structure::before {
@@ -137,7 +125,19 @@ body::-webkit-scrollbar {
   background: #000000;
   padding: 0 10px;
   font-size: 12px;
+  z-index: 10;
+  pointer-events: none;
 }
+
+.directory-content {
+  max-height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.directory-content::-webkit-scrollbar {
+  display: none;
+}
+
 
 .directory-structure ul {
   list-style: none;
