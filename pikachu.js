@@ -1,11 +1,10 @@
 const pikachu = document.getElementById("pikachu");
 const cursorRadius = 75;
-const speed = 1.5; // Movement speed
-const frameDelay = 40; // Increased delay for slower animation
-const movementStartDelay = 15; // Delay before animation starts
-const mouseMovementDelay = 15; // Delay before following new mouse position
+const speed = 1.5;
+const frameDelay = 40;
+const movementStartDelay = 15;
+const mouseMovementDelay = 15;
 
-// Changed all paths to relative (removed leading slash)
 const sprites = {
     left: { 
         move: "image-folder/left-move.png",
@@ -25,7 +24,6 @@ const sprites = {
     }
 };
 
-// Preload all images to ensure they're available before animation starts
 function preloadImages() {
     const allImages = [];
     
@@ -71,24 +69,22 @@ let currentDirection = "down";
 let isMoving = false;
 let movementDelayCounter = 0;
 
-// Initialize position and ensure Pikachu is on top
-pikachu.style.position = "fixed"; // Use fixed positioning to stay on top
+pikachu.style.position = "fixed";
 pikachu.style.left = pikachu.style.left || "10px";
 pikachu.style.top = pikachu.style.top || "10px";
 pikachu.style.imageRendering = "pixelated";
 pikachu.style.width = "40px";
 pikachu.style.height = "40px";
-pikachu.style.zIndex = "9999"; // High z-index to ensure it's on top
-pikachu.style.pointerEvents = "none"; // Allow clicks to pass through Pikachu
+pikachu.style.zIndex = "1000";
+pikachu.style.pointerEvents = "none";
 
 document.addEventListener("mousemove", (event) => {
     lastMouseX = event.clientX;
     lastMouseY = event.clientY;
-    mouseStableCounter = 0; // Reset counter on mouse movement
+    mouseStableCounter = 0;
 });
 
 function movePikachu() {
-    // Update target position with delay
     mouseStableCounter++;
     if (mouseStableCounter >= mouseMovementDelay) {
         targetX = lastMouseX;
@@ -118,13 +114,11 @@ function movePikachu() {
             currentDirection = dy < 0 ? "up" : "down";
         }
 
-        // Animation logic
         if (!isMoving) {
             isMoving = true;
             movementDelayCounter = 0;
         }
 
-        // Slow down the sprite toggle
         if (movementDelayCounter++ >= movementStartDelay) {
             frameToggle = (frameToggle + 1) % frameDelay;
         }
@@ -133,14 +127,11 @@ function movePikachu() {
         movementDelayCounter = 0;
     }
 
-    // Update sprite
     const spriteSet = sprites[currentDirection];
     if (isMoving) {
         if (currentDirection === "left" || currentDirection === "right") {
-            // Toggle between move and stand sprites for horizontal directions
             pikachu.src = frameToggle < frameDelay / 2 ? spriteSet.move : spriteSet.stand;
         } else {
-            // Use array-based sprites for vertical directions
             const frameIndex = Math.floor(frameToggle / (frameDelay / 2));
             pikachu.src = spriteSet.move[frameIndex % spriteSet.move.length];
         }

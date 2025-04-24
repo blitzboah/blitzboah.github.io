@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -20,6 +33,10 @@ body {
   background-size: 20px 20px;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 #pikachu {
   position: absolute;
   width: 30px;
@@ -29,7 +46,11 @@ body {
 }
 
 .cont {
-  max-width: 900px;
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  min-height: 100vh;
+  height: 100%;
   width: 100%;
   padding: 20px;
   border: 4px solid #ffffff;
@@ -37,16 +58,19 @@ body {
     8px 8px 0 rgba(255, 255, 255, 0.1),
     -8px -8px 0 rgba(255, 255, 255, 0.1);
   image-rendering: pixelated;
+  overflow: hidden;
 }
 
 .nav {
-  margin-bottom: 40px;
-  padding: 15px;
+  width: 10%;
+  margin-right: 20px;
+  padding: 10px;
   background: #000000;
   border: 4px solid #ffffff;
   position: relative;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  flex-wrap: nowrap;
 }
 
 .nav::before {
@@ -64,12 +88,14 @@ body {
   color: #fff;
   font-size: 16px;
   text-decoration: none;
-  margin-right: 30px;
-  margin-bottom: 10px;
+  margin-right: 0;
+  margin-bottom: 15px;
   padding: 5px 10px;
   border: 2px solid transparent;
   transition: all 0.2s ease;
   display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .nav a:hover {
@@ -80,11 +106,26 @@ body {
 }
 
 .directory-structure {
-  margin-bottom: 30px;
+  flex: 1;
+  overflow-y: auto;
+  height: 100%;
+  scrollbar-width: none;
+  width: 90%;
+  margin-bottom: 0;
   padding: 20px;
   background: #000000;
   border: 4px solid #ffffff;
   position: relative;
+  overflow: visible;
+}
+
+.directory-content {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.directory-structure::-webkit-scrollbar {
+  display: none;
 }
 
 .directory-structure::before {
@@ -191,29 +232,25 @@ body {
   }
   
   .cont {
-    padding: 15px;
-    border-width: 3px;
-    box-shadow: 
-      6px 6px 0 rgba(255, 255, 255, 0.1),
-      -6px -6px 0 rgba(255, 255, 255, 0.1);
+    flex-direction: column;
   }
   
   .nav {
-    margin-bottom: 30px;
-    padding: 10px;
-    border-width: 3px;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
   
   .nav a {
-    font-size: 14px;
+    width: auto;
     margin-right: 15px;
     margin-bottom: 8px;
-    padding: 4px 8px;
   }
   
   .directory-structure {
-    padding: 15px;
-    border-width: 3px;
+    width: 100%;
   }
   
   .directory-structure li,
@@ -244,10 +281,6 @@ body {
   }
   
   .nav a {
-    font-size: 12px;
-    margin-right: 10px;
-    margin-bottom: 6px;
-    padding: 3px 6px;
     width: calc(50% - 20px);
     text-align: center;
   }
