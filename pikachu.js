@@ -6,53 +6,44 @@ const movementStartDelay = 15;
 const mouseMovementDelay = 15;
 
 const sprites = {
-    left: { 
+    left: {
         move: "image-folder/left-move.png",
-        stand: "image-folder/left-stand.png" 
+        stand: "image-folder/left-stand.png"
     },
-    right: { 
+    right: {
         move: "image-folder/right-move.png",
-        stand: "image-folder/right-stand.png" 
+        stand: "image-folder/right-stand.png"
     },
-    up: { 
-        move: ["image-folder/back-move-1.png", "image-folder/back-move-2.png"], 
-        stand: "image-folder/back-stand.png" 
+    up: {
+        move: ["image-folder/back-move-1.png", "image-folder/back-move-2.png"],
+        stand: "image-folder/back-stand.png"
     },
-    down: { 
-        move: ["image-folder/front-move-1.png", "image-folder/front-move-2.png"], 
-        stand: "image-folder/front-stand.png" 
+    down: {
+        move: ["image-folder/front-move-1.png", "image-folder/front-move-2.png"],
+        stand: "image-folder/front-stand.png"
     }
 };
 
 function preloadImages() {
     const allImages = [];
-    
+
     for (const direction in sprites) {
-        if (typeof sprites[direction].move === 'string') {
-            allImages.push(sprites[direction].move);
-        } else if (Array.isArray(sprites[direction].move)) {
-            allImages.push(...sprites[direction].move);
+        const sprite = sprites[direction];
+        if (Array.isArray(sprite.move)) {
+            allImages.push(...sprite.move);
+        } else {
+            allImages.push(sprite.move);
         }
-        allImages.push(sprites[direction].stand);
+        allImages.push(sprite.stand);
     }
-    
-    let loadedCount = 0;
-    const totalImages = allImages.length;
-    
+
+    let loaded = 0;
     return new Promise((resolve) => {
         allImages.forEach(src => {
             const img = new Image();
-            img.onload = () => {
-                loadedCount++;
-                if (loadedCount === totalImages) {
-                    resolve();
-                }
-            };
-            img.onerror = () => {
-                loadedCount++;
-                if (loadedCount === totalImages) {
-                    resolve();
-                }
+            img.onload = img.onerror = () => {
+                loaded++;
+                if (loaded === allImages.length) resolve();
             };
             img.src = src;
         });
@@ -68,15 +59,18 @@ let frameToggle = 0;
 let currentDirection = "down";
 let isMoving = false;
 let movementDelayCounter = 0;
+let pikachuX = 10;
+let pikachuY = 10;
+let lastSrc = "";
 
 pikachu.style.position = "fixed";
-pikachu.style.left = pikachu.style.left || "10px";
-pikachu.style.top = pikachu.style.top || "10px";
+pikachu.style.transform = `translate(${pikachuX}px, ${pikachuY}px)`;
 pikachu.style.imageRendering = "pixelated";
 pikachu.style.width = "40px";
 pikachu.style.height = "40px";
 pikachu.style.zIndex = "1000";
 pikachu.style.pointerEvents = "none";
+pikachu.style.willChange = "transform";
 
 document.addEventListener("mousemove", (event) => {
     lastMouseX = event.clientX;
@@ -91,28 +85,22 @@ function movePikachu() {
         targetY = lastMouseY;
     }
 
-    const pikachuX = parseFloat(pikachu.style.left);
-    const pikachuY = parseFloat(pikachu.style.top);
     const dx = targetX - pikachuX;
     const dy = targetY - pikachuY;
     const distance = Math.sqrt(dx * dx + dy * dy);
 
     if (distance > cursorRadius) {
-        // Normalize movement vector
         const angle = Math.atan2(dy, dx);
         const moveX = Math.cos(angle) * speed;
         const moveY = Math.sin(angle) * speed;
 
-        // Update position
-        pikachu.style.left = `${pikachuX + moveX}px`;
-        pikachu.style.top = `${pikachuY + moveY}px`;
+        pikachuX += moveX;
+        pikachuY += moveY;
+        pikachu.style.transform = `translate(${pikachuX}px, ${pikachuY}px)`;
 
-        // Determine direction
-        if (Math.abs(dx) > Math.abs(dy)) {
-            currentDirection = dx < 0 ? "left" : "right";
-        } else {
-            currentDirection = dy < 0 ? "up" : "down";
-        }
+        currentDirection = Math.abs(dx) > Math.abs(dy)
+            ? (dx < 0 ? "left" : "right")
+            : (dy < 0 ? "up" : "down");
 
         if (!isMoving) {
             isMoving = true;
@@ -128,21 +116,28 @@ function movePikachu() {
     }
 
     const spriteSet = sprites[currentDirection];
+    let newSrc;
+
     if (isMoving) {
         if (currentDirection === "left" || currentDirection === "right") {
-            pikachu.src = frameToggle < frameDelay / 2 ? spriteSet.move : spriteSet.stand;
+            newSrc = frameToggle < frameDelay / 2 ? spriteSet.move : spriteSet.stand;
         } else {
             const frameIndex = Math.floor(frameToggle / (frameDelay / 2));
-            pikachu.src = spriteSet.move[frameIndex % spriteSet.move.length];
+            newSrc = spriteSet.move[frameIndex % spriteSet.move.length];
         }
     } else {
-        pikachu.src = spriteSet.stand;
+        newSrc = spriteSet.stand;
+    }
+
+    if (pikachu.src !== newSrc) {
+        pikachu.src = newSrc;
     }
 
     requestAnimationFrame(movePikachu);
 }
+
 preloadImages().then(() => {
     movePikachu();
 }).catch(error => {
-    console.error("Error in preloading:", error);
+    console.error("Image preload error:", error);
 });
