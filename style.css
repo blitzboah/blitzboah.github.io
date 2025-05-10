@@ -23,7 +23,12 @@ body {
   padding: 20px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 22px;
-  font-weight: 400;
+  font-weight: 700;
+  font-smooth: never;
+  letter-spacing: 0.5;
+  font-variant-numeric: slashed-zero;
+  image-rendering: pixelated;
+  text-rendering: geometricPrecision;
   line-height: 1.6;
   background-color: #000000;
   color: #ffffff;
