@@ -38,7 +38,7 @@
         "name": "watchdawg",
         "url": "https://github.com/blitzboah/watchdawg",
         "tech": "js",
-        "description": "a popup extension to keep reminding not to waste time on sites that i am addicted to ;(",
+        "description": "just a popup extension",
         "image": ["image-folder/watchdawg.png"]
       },
       {
