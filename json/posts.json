@@ -1,0 +1,10 @@
+{
+  "posts": [
+    {
+      "title": "bleh",
+      "text": "im tired boss",
+      "image": ["../image-folder/bleh.png"]
+    }
+  ]
+}
+

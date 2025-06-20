@@ -47,6 +47,22 @@
       color: #D8B3FF;
       border-color: #A569BD;
     }
+    
+  #post-info .image-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  #post-info .image-container img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: contain;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
 </style>
 </head>
 
@@ -54,7 +70,7 @@
   <div class="cont">
     <div class="nav">
       <p>
-        <a href="index.html">builds</a>
+        <a href="../index.html">builds</a>
         <a href="posts.html">post</a>
         <a href="about.html">about</a>
       </p>
@@ -75,7 +91,7 @@
   const urlParams = new URLSearchParams(window.location.search);
   const postTitle = urlParams.get('post');
 
-  fetch('posts.json')
+  fetch('../json/posts.json')
     .then(response => response.json())
     .then(data => {
       const post = data.posts.find(p => p.title === postTitle);
