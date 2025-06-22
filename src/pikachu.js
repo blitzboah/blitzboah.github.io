@@ -7,20 +7,20 @@ const mouseMovementDelay = 15;
 
 const sprites = {
     left: {
-        move: "image-folder/left-move.png",
-        stand: "image-folder/left-stand.png"
+        move: "static/left-move.png",
+        stand: "static/left-stand.png"
     },
     right: {
-        move: "image-folder/right-move.png",
-        stand: "image-folder/right-stand.png"
+        move: "static/right-move.png",
+        stand: "static/right-stand.png"
     },
     up: {
-        move: ["image-folder/back-move-1.png", "image-folder/back-move-2.png"],
-        stand: "image-folder/back-stand.png"
+        move: ["static/back-move-1.png", "static/back-move-2.png"],
+        stand: "static/back-stand.png"
     },
     down: {
-        move: ["image-folder/front-move-1.png", "image-folder/front-move-2.png"],
-        stand: "image-folder/front-stand.png"
+        move: ["static/front-move-1.png", "static/front-move-2.png"],
+        stand: "static/front-stand.png"
     }
 };
 

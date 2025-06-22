@@ -3,7 +3,7 @@
     {
       "title": "bleh",
       "text": "im tired boss",
-      "image": ["../image-folder/bleh.png"]
+      "image": ["../static/bleh.png"]
     }
   ]
 }
