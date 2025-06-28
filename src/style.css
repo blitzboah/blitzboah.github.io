@@ -117,7 +117,7 @@ body::-webkit-scrollbar {
   padding: 20px;
   margin-bottom: 0;
   flex: 1;
-  overflow: visible;
+  overflow: auto;
 }
 
 .directory-structure::before {
