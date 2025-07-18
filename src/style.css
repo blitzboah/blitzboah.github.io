@@ -192,6 +192,19 @@ body::-webkit-scrollbar {
   transform: scale(1.05);
 }
 
+.button-container {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+}
+
+.button-image {
+  width: 97px;
+  height: 60px;
+  object-fit: contain;
+  display: block;
+}
+
 .image-container {
   display: flex;
   flex-wrap: wrap;
