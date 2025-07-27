@@ -117,7 +117,7 @@ body::-webkit-scrollbar {
   padding: 20px;
   margin-bottom: 0;
   flex: 1;
-  overflow: auto;
+  overflow: visible;
 }
 
 .directory-structure::before {
@@ -142,7 +142,6 @@ body::-webkit-scrollbar {
 .directory-content::-webkit-scrollbar {
   display: none;
 }
-
 
 .directory-structure ul {
   list-style: none;
@@ -244,80 +243,168 @@ body::-webkit-scrollbar {
 }
 
 @media screen and (max-width: 768px) {
+  html, body {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
   body {
-    padding: 10px;
+    padding: 5px;
     font-size: 16px;
+    align-items: stretch;
   }
   
   .cont {
     flex-direction: column;
+    min-height: auto;
+    height: auto;
+    padding: 10px;
+    overflow: visible;
   }
   
   .nav {
     width: 100%;
     margin-right: 0;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     flex-direction: row;
     flex-wrap: wrap;
+    padding: 8px;
+    min-height: auto;
+  }
+  
+  .nav::before {
+    content: "nav";
+    font-size: 10px;
+    top: -10px;
   }
   
   .nav a {
     width: auto;
-    margin-right: 15px;
+    margin-right: 10px;
     margin-bottom: 8px;
+    font-size: 14px;
+    padding: 8px 12px;
+    white-space: nowrap;
+  }
+
+  .button-container {
+    display: none;
   }
   
   .directory-structure {
     width: 100%;
+    padding: 15px;
+    overflow: visible;
+    height: auto;
+    flex: none;
   }
   
-  .directory-structure li,
-  .directory-structure a {
-    font-size: 14px;
+  .directory-structure::before {
+    font-size: 10px;
+    top: -10px;
+  }
+  
+  .directory-content {
+    overflow: visible;
+    max-height: none;
+  }
+  
+  .directory-structure li {
+    font-size: 16px;
     line-height: 1.5;
+    margin-bottom: 12px;
+    padding-left: 15px;
+  }
+  
+  .directory-structure a {
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 3px 6px;
+  }
+  
+  .directory-structure ul {
+    padding-left: 15px;
+  }
+  
+  .image-container img {
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 }
 
 @media screen and (max-width: 480px) {
   body {
-    padding: 8px;
+    padding: 3px;
     font-size: 14px;
   }
   
   .cont {
-    padding: 12px;
-    border-width: 2px;
+    padding: 8px;
+    border-width: 1px;
     box-shadow: 
       4px 4px 0 rgba(255, 255, 255, 0.1),
       -4px -4px 0 rgba(255, 255, 255, 0.1);
   }
   
   .nav {
-    margin-bottom: 25px;
-    padding: 8px;
-    border-width: 2px;
+    margin-bottom: 12px;
+    padding: 6px;
+    border-width: 1px;
   }
   
   .nav a {
-    width: calc(50% - 20px);
-    text-align: center;
+    font-size: 12px;
+    padding: 6px 10px;
+    margin-right: 8px;
+    margin-bottom: 6px;
   }
   
   .directory-structure {
-    padding: 12px;
-    border-width: 2px;
+    padding: 10px;
+    border-width: 1px;
   }
   
   .directory-structure::before,
   .nav::before {
-    font-size: 10px;
-    top: -10px;
+    font-size: 8px;
+    top: -8px;
+  }
+  
+  .directory-structure li {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    padding-left: 12px;
+  }
+  
+  .directory-structure a {
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 2px 4px;
+  }
+  
+  .directory-structure ul {
+    padding-left: 12px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  body {
+    padding: 2px;
+    font-size: 12px;
+  }
+  
+  .cont {
+    padding: 6px;
+  }
+  
+  .nav a {
+    font-size: 11px;
+    padding: 4px 8px;
   }
   
   .directory-structure li,
   .directory-structure a {
     font-size: 12px;
-    line-height: 1.4;
-    margin-bottom: 10px;
   }
 }
