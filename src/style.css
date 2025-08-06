@@ -1,410 +1,453 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  margin: 0;
-  padding: 20px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 22px;
-  font-weight: 700;
-  font-smooth: never;
-  letter-spacing: 0.5;
-  font-variant-numeric: slashed-zero;
-  image-rendering: pixelated;
-  text-rendering: geometricPrecision;
-  line-height: 1.6;
-  background-color: #000000;
-  color: #ffffff;
-  text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.2);
-  background-size: 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 22px;
+    font-weight: 700;
+    font-smooth: never;
+    letter-spacing: 0.5;
+    font-variant-numeric: slashed-zero;
+    image-rendering: pixelated;
+    text-rendering: geometricPrecision;
+    line-height: 1.6;
+    background-color: #000000;
+    color: #ffffff;
+    text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.2);
+    background-size: 20px 20px;
 }
 
 body::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 #pikachu {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  left: 10px;
-  top: 10px;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 10px;
+    top: 10px;
 }
 
 .cont {
-  display: flex;
-  flex-direction: row;
-  max-width: 100%;
-  min-height: 95vh;
-  height: 100%;
-  width: 100%;
-  padding: 20px;
-  border: 2px solid #ffffff;
-  box-shadow: 
-    8px 8px 0 rgba(255, 255, 255, 0.1),
-    -8px -8px 0 rgba(255, 255, 255, 0.1);
-  image-rendering: pixelated;
-  overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    min-height: 95vh;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    border: 2px solid #ffffff;
+    box-shadow:
+        8px 8px 0 rgba(255, 255, 255, 0.1),
+        -8px -8px 0 rgba(255, 255, 255, 0.1);
+    image-rendering: pixelated;
+    overflow: hidden;
 }
 
 .nav {
-  width: 10%;
-  margin-right: 20px;
-  padding: 10px;
-  background: #000000;
-  border: 2px solid #ffffff;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+    width: 10%;
+    margin-right: 20px;
+    padding: 10px;
+    background: #000000;
+    border: 2px solid #ffffff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
 
 .nav::before {
-  font-family: 'Press Start 2P', monospace;
-  content: ">>>>>";
-  color: #999999;
-  position: absolute;
-  top: -12px;
-  left: 10px;
-  background: #000000;
-  padding: 0 10px;
-  font-size: 12px;
+    font-family: "Press Start 2P", monospace;
+    content: ">>>>>";
+    color: #999999;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background: #000000;
+    padding: 0 10px;
+    font-size: 12px;
 }
 
 .nav a {
-  color: #fff;
-  font-size: 22px;
-  text-decoration: none;
-  margin-right: 0;
-  margin-bottom: 15px;
-  padding: 5px 10px;
-  border: 2px solid transparent;
-  transition: all 0.2s ease;
-  display: inline-block;
-  width: 100%;
-  box-sizing: border-box;
+    color: #fff;
+    font-size: 22px;
+    text-decoration: none;
+    margin-right: 0;
+    margin-bottom: 15px;
+    padding: 5px 10px;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .nav a:hover {
-  border: 2px solid #ffffff;
-  background: #ffffff;
-  color: #000000;
-  transform: scale(1.05);
+    border: 2px solid #ffffff;
+    background: #ffffff;
+    color: #000000;
+    transform: scale(1.05);
 }
 
 .directory-structure {
-  position: relative;
-  width: 90%;
-  border: 2px solid #ffffff;
-  background: #000000;
-  padding: 20px;
-  margin-bottom: 0;
-  flex: 1;
-  overflow: visible;
+    position: relative;
+    width: 90%;
+    border: 2px solid #ffffff;
+    background: #000000;
+    padding: 20px;
+    margin-bottom: 0;
+    flex: 1;
+    overflow: visible;
 }
 
 .directory-structure::before {
-  font-family: 'Press Start 2P', monospace;
-  content: attr(page);
-  color: #999999;
-  position: absolute;
-  top: -12px;
-  left: 10px;
-  background: #000000;
-  padding: 0 10px;
-  font-size: 12px;
-  z-index: 10;
-  pointer-events: none;
+    font-family: "Press Start 2P", monospace;
+    content: attr(page);
+    color: #999999;
+    position: absolute;
+    top: -12px;
+    left: 10px;
+    background: #000000;
+    padding: 0 10px;
+    font-size: 12px;
+    z-index: 10;
+    pointer-events: none;
 }
 
 .directory-content {
-  max-height: 100%;
-  overflow-y: auto;
-  scrollbar-width: none;
+    max-height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
 }
 .directory-content::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .directory-structure ul {
-  list-style: none;
-  margin: 0;
-  padding-left: 20px;
+    list-style: none;
+    margin: 0;
+    padding-left: 20px;
 }
 
 .directory-structure > ul {
-  padding-left: 0;
+    padding-left: 0;
 }
 
 .directory-structure li {
-  color: #00BFFF;
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: 15px;
-  transition: transform 0.2s ease;
-  font-size: 22px;
-  line-height: 1.6;
-  word-break: break-word;
-} 
+    color: #00bfff;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    transition: transform 0.2s ease;
+    font-size: 22px;
+    line-height: 1.6;
+    word-break: break-word;
+}
 
 .directory-structure li.blink-arrow:before {
-  content: ">";
-  position: absolute;
-  left: 0;
-  color: #ffffff;
+    content: ">";
+    position: absolute;
+    left: 0;
+    color: #ffffff;
 }
 
 .directory-structure li:hover {
-  transform: translateX(5px);
+    transform: translateX(5px);
 }
 
 .directory-structure a {
-  color: #ffffff;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  display: inline-block;
-  padding: 2px 5px;
-  font-size: 22px;
-  line-height: 1.6;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-block;
+    padding: 2px 5px;
+    font-size: 22px;
+    line-height: 1.6;
 }
 
 .directory-structure a:hover {
-  background: #CCE7FC;
-  color: #000000;
-  transform: scale(1.05);
+    background: #cce7fc;
+    color: #000000;
+    transform: scale(1.05);
 }
 
 .button-container {
-  position: absolute;
-  top: 10px;
-  right: 16px;
+    position: absolute;
+    top: 10px;
+    right: 16px;
 }
 
 .button-image {
-  width: 97px;
-  height: 60px;
-  object-fit: contain;
-  display: block;
+    width: 97px;
+    height: 60px;
+    object-fit: contain;
+    display: block;
 }
 
 .image-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  width: 100%;
-  margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    margin: 20px 0;
 }
 
 .image-container img {
-  flex: 1 1 calc(50% - 5px);
-  max-width: calc(50% - 5px);
-  height: auto;
-  object-fit: cover;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  display: block;
+    flex: 1 1 calc(50% - 5px);
+    max-width: calc(50% - 5px);
+    height: auto;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: block;
 }
 
 .image-container img:only-child {
-  flex: 1 1 100%;
-  max-width: 100%;
+    flex: 1 1 100%;
+    max-width: 100%;
 }
 
 .video-container {
-  position: relative;
-  width: 100%;
-  margin: 20px 0;
-  margin-bottom: 10px;
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+    margin-bottom: 10px;
 }
 
 .video-container video {
-  width: 100%;
-  height: auto;
-  max-height: 80vh;
-  display: block;
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    display: block;
 }
 
 @media screen and (max-width: 768px) {
-  html, body {
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-  
-  body {
-    padding: 5px;
-    font-size: 16px;
-    align-items: stretch;
-  }
-  
-  .cont {
-    flex-direction: column;
-    min-height: auto;
-    height: auto;
-    padding: 10px;
-    overflow: visible;
-  }
-  
-  .nav {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 15px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 8px;
-    min-height: auto;
-  }
-  
-  .nav::before {
-    content: "nav";
-    font-size: 10px;
-    top: -10px;
-  }
-  
-  .nav a {
-    width: auto;
-    margin-right: 10px;
-    margin-bottom: 8px;
-    font-size: 14px;
-    padding: 8px 12px;
-    white-space: nowrap;
-  }
+    html,
+    body {
+        overflow: hidden;
+    }
 
-  .button-container {
-    display: none;
-  }
-  
-  .directory-structure {
-    width: 100%;
-    padding: 15px;
-    overflow: visible;
-    height: auto;
-    flex: none;
-  }
-  
-  .directory-structure::before {
-    font-size: 10px;
-    top: -10px;
-  }
-  
-  .directory-content {
-    overflow: visible;
-    max-height: none;
-  }
-  
-  .directory-structure li {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 12px;
-    padding-left: 15px;
-  }
-  
-  .directory-structure a {
-    font-size: 16px;
-    line-height: 1.5;
-    padding: 3px 6px;
-  }
-  
-  .directory-structure ul {
-    padding-left: 15px;
-  }
-  
-  .image-container img {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
+    body {
+        padding: 5px;
+        font-size: 16px;
+        align-items: stretch;
+    }
+
+    .cont {
+        flex-direction: column;
+        min-height: auto;
+        height: calc(100vh - 10px);
+        padding: 10px;
+        overflow: hidden;
+    }
+
+    .nav {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 15px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 8px;
+        min-height: auto;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 10;
+    }
+
+    .nav::before {
+        content: ">>>";
+        margin-top: 3px;
+        font-size: 10px;
+    }
+
+    .nav a {
+        width: auto;
+        margin-right: 10px;
+        margin-bottom: 8px;
+        font-size: 14px;
+        padding: 8px 12px;
+        white-space: nowrap;
+    }
+
+    .button-container {
+        display: none;
+    }
+
+    .directory-structure {
+        width: 100%;
+        padding: 15px;
+        overflow-y: visible;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 135px);
+        min-height: 300px;
+        position: relative;
+    }
+
+    .directory-structure::before {
+        font-size: 10px;
+        top: -10px;
+        z-index: 30;
+        background: #000000;
+        position: absolute;
+    }
+
+    .directory-content {
+        overflow-y: auto;
+        max-height: 100%;
+        flex: 1;
+    }
+
+    .directory-content::-webkit-scrollbar {
+        display: block;
+        width: 8px;
+    }
+
+    .directory-content::-webkit-scrollbar-track {
+        background: #000000;
+        border: 1px solid #ffffff;
+    }
+
+    .directory-content::-webkit-scrollbar-thumb {
+        background: #ffffff;
+        border-radius: 0;
+    }
+
+    .directory-content::-webkit-scrollbar-thumb:hover {
+        background: #cccccc;
+    }
+
+    .directory-structure li {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 12px;
+        padding-left: 15px;
+    }
+
+    .directory-structure a {
+        font-size: 16px;
+        line-height: 1.5;
+        padding: 3px 6px;
+    }
+
+    .directory-structure ul {
+        padding-left: 15px;
+    }
+
+    .image-container img {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
 }
 
 @media screen and (max-width: 480px) {
-  body {
-    padding: 3px;
-    font-size: 14px;
-  }
-  
-  .cont {
-    padding: 8px;
-    border-width: 1px;
-    box-shadow: 
-      4px 4px 0 rgba(255, 255, 255, 0.1),
-      -4px -4px 0 rgba(255, 255, 255, 0.1);
-  }
-  
-  .nav {
-    margin-bottom: 12px;
-    padding: 6px;
-    border-width: 1px;
-  }
-  
-  .nav a {
-    font-size: 12px;
-    padding: 6px 10px;
-    margin-right: 8px;
-    margin-bottom: 6px;
-  }
-  
-  .directory-structure {
-    padding: 10px;
-    border-width: 1px;
-  }
-  
-  .directory-structure::before,
-  .nav::before {
-    font-size: 8px;
-    top: -8px;
-  }
-  
-  .directory-structure li {
-    font-size: 14px;
-    line-height: 1.4;
-    margin-bottom: 10px;
-    padding-left: 12px;
-  }
-  
-  .directory-structure a {
-    font-size: 14px;
-    line-height: 1.4;
-    padding: 2px 4px;
-  }
-  
-  .directory-structure ul {
-    padding-left: 12px;
-  }
+    body {
+        padding: 3px;
+        font-size: 14px;
+    }
+
+    .cont {
+        padding: 8px;
+        border-width: 1px;
+        box-shadow:
+            4px 4px 0 rgba(255, 255, 255, 0.1),
+            -4px -4px 0 rgba(255, 255, 255, 0.1);
+        height: calc(100vh - 6px);
+    }
+
+    .nav {
+        margin-bottom: 12px;
+        padding: 6px;
+        border-width: 1px;
+    }
+
+    .nav a {
+        font-size: 12px;
+        padding: 6px 10px;
+        margin-right: 8px;
+        margin-bottom: 6px;
+    }
+
+    .directory-structure {
+        padding: 10px;
+        border-width: 1px;
+        height: calc(100vh - 100px);
+        min-height: 250px;
+        position: relative;
+        z-index: 20;
+    }
+
+    .directory-structure::before,
+    .nav::before {
+        font-size: 8px;
+        top: -8px;
+        z-index: 30;
+    }
+
+    .directory-structure li {
+        font-size: 14px;
+        line-height: 1.4;
+        margin-bottom: 10px;
+        padding-left: 12px;
+    }
+
+    .directory-structure a {
+        font-size: 14px;
+        line-height: 1.4;
+        padding: 2px 4px;
+    }
+
+    .directory-structure ul {
+        padding-left: 12px;
+    }
 }
 
 @media screen and (max-width: 360px) {
-  body {
-    padding: 2px;
-    font-size: 12px;
-  }
-  
-  .cont {
-    padding: 6px;
-  }
-  
-  .nav a {
-    font-size: 11px;
-    padding: 4px 8px;
-  }
-  
-  .directory-structure li,
-  .directory-structure a {
-    font-size: 12px;
-  }
+    body {
+        padding: 2px;
+        font-size: 12px;
+    }
+
+    .cont {
+        padding: 6px;
+        height: calc(100vh - 4px);
+    }
+
+    .nav a {
+        font-size: 11px;
+        padding: 4px 8px;
+    }
+
+    .directory-structure {
+        height: calc(100vh - 90px);
+        min-height: 200px;
+    }
+
+    .directory-structure li,
+    .directory-structure a {
+        font-size: 12px;
+    }
 }

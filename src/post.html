@@ -1,153 +1,163 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>/post</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" type="image/x-icon" href="/static/kek.jpg" />
+        <style>
+            body {
+                color: #ffffff;
+                line-height: 1.6;
+            }
+            a {
+                color: #ffffff;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: none;
+            }
+            #post-info h2 {
+                margin-bottom: 20px;
+                color: #d8b3ff;
+                padding: 10px;
+                border: 2px solid #a569bd;
+                display: inline-block;
+            }
+            #post-info p {
+                color: #fff;
+                margin: 15px 0;
+            }
+            #post-info .url-container a {
+                color: #fff;
+                text-decoration: underline;
+                transition: all 0.2s ease;
+            }
+            #post-info .url-container a:hover {
+                background: #d8b3ff;
+                color: #000000;
+                transform: scale(1.05);
+                text-shadow: none;
+                text-decoration: underline;
+            }
+            #post-info h2:hover {
+                transition: all 0.2s ease;
+                color: #d8b3ff;
+                border-color: #a569bd;
+            }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>/post</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/x-icon" href="/static/kek.jpg" />
-  <style>
-    body {
-      color: #ffffff;
-      line-height: 1.6;
-    }
-    a {
-      color: #ffffff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: none;
-    }
-    #post-info h2 {
-      margin-bottom: 20px;
-      color: #D8B3FF;
-      padding: 10px;
-      border: 2px solid #A569BD;
-      display: inline-block;
-    }
-    #post-info p {
-      color: #fff;
-      margin: 15px 0;
-    }
-    #post-info .url-container a {
-      color: #fff;
-      text-decoration: underline;
-      transition: all 0.2s ease;
-    }
-    #post-info .url-container a:hover {
-      background: #D8B3FF;
-      color: #000000;
-      transform: scale(1.05);
-      text-shadow: none;
-      text-decoration: underline;
-    }
-    #post-info h2:hover {
-      transition: all 0.2s ease;
-      color: #D8B3FF;
-      border-color: #A569BD;
-    }
-    
-  #post-info .image-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 20px;
-  }
+            #post-info .image-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 16px;
+                margin-top: 20px;
+            }
 
-  #post-info .image-container img {
-    max-width: 300px;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    object-fit: contain;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  }
-</style>
-</head>
+            #post-info .image-container img {
+                max-width: 300px;
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                object-fit: contain;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            }
+        </style>
+    </head>
 
-<body>
-  <div class="cont">
-    <div class="nav">
-      <p>
-        <a href="../index.html">builds</a>
-        <a href="posts.html">post</a>
-        <a href="about.html">about</a>
-      </p>
-    </div>
-    <div class="directory-structure" page="post">
-      <div class="directory-content">
-        <ul>
-          <li id="post-info">
-            <!-- post info here -->
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+    <body>
+        <div class="cont">
+            <div class="nav">
+                <p>
+                    <a href="../index.html">builds</a>
+                    <a href="posts.html">post</a>
+                    <a href="about.html">about</a>
+                </p>
+            </div>
+            <div class="directory-structure" page="post">
+                <div class="directory-content">
+                    <ul>
+                        <li id="post-info">
+                            <!-- post info here -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-  const urlParams = new URLSearchParams(window.location.search);
-  const postTitle = urlParams.get('post');
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const urlParams = new URLSearchParams(window.location.search);
+                const postTitle = urlParams.get("post");
 
-  fetch('../json/posts.json')
-    .then(response => response.json())
-    .then(data => {
-      const post = data.posts.find(p => p.title === postTitle);
-      if (post) {
-        const postInfo = document.getElementById('post-info');
+                fetch("../json/posts.json")
+                    .then((response) => response.json())
+                    .then((data) => {
+                        const post = data.posts.find(
+                            (p) => p.title === postTitle,
+                        );
+                        if (post) {
+                            const postInfo =
+                                document.getElementById("post-info");
 
-        let mediaHTML = '';
+                            let mediaHTML = "";
 
-        if (post.video && post.video.length > 0) {
-          post.video.forEach(videoSrc => {
-            mediaHTML += `
+                            if (post.video && post.video.length > 0) {
+                                post.video.forEach((videoSrc) => {
+                                    mediaHTML += `
               <div class="video-container">
                 <video autoplay muted loop playsinline controls>
                   <source src="${videoSrc}" type="video/mp4">
                 </video>
               </div>
             `;
-          });
-        }
+                                });
+                            }
 
-        if (post.image && post.image.length > 0) {
-          mediaHTML += '<div class="image-container">';
-          post.image.forEach(imgSrc => {
-            mediaHTML += `<img src="${imgSrc}" alt="${post.title}" />`;
-          });
-          mediaHTML += '</div>';
-        }
+                            if (post.image && post.image.length > 0) {
+                                mediaHTML += '<div class="image-container">';
+                                post.image.forEach((imgSrc) => {
+                                    mediaHTML += `<img src="${imgSrc}" alt="${post.title}" />`;
+                                });
+                                mediaHTML += "</div>";
+                            }
 
-        let urlHTML = '';
-        if (post.urls && Array.isArray(post.urls) && post.urls.length > 0) {
-          post.urls.forEach(urlObj => {
-            if (urlObj.title && urlObj.link) {
-              urlHTML += `
+                            let urlHTML = "";
+                            if (
+                                post.urls &&
+                                Array.isArray(post.urls) &&
+                                post.urls.length > 0
+                            ) {
+                                post.urls.forEach((urlObj) => {
+                                    if (urlObj.title && urlObj.link) {
+                                        urlHTML += `
                 <div class="url-container">
                   <p><a href="${urlObj.link}" target="_blank">${urlObj.title}</a></p>
                 </div>
               `;
-            }
-          });
-        } else if (post.url) {
-          if (typeof post.url === 'object' && post.url.title && post.url.link) {
-            urlHTML = `
+                                    }
+                                });
+                            } else if (post.url) {
+                                if (
+                                    typeof post.url === "object" &&
+                                    post.url.title &&
+                                    post.url.link
+                                ) {
+                                    urlHTML = `
               <div class="url-container">
                 <p><a href="${post.url.link}" target="_blank">${post.url.title}</a></p>
               </div>
             `;
-          } else if (typeof post.url === 'string') {
-            urlHTML = `
+                                } else if (typeof post.url === "string") {
+                                    urlHTML = `
               <div class="url-container">
                 <p><a href="${post.url}" target="_blank">${post.url}</a></p>
               </div>
             `;
-          }
-        }
+                                }
+                            }
 
-        postInfo.innerHTML = `
+                            postInfo.innerHTML = `
           <h2>${post.title}</h2> <br>
           <div class="desc-container">
             <p>${post.text}</p>
@@ -155,14 +165,12 @@
           ${urlHTML}
           ${mediaHTML}
         `;
-      }
-    })
-    .catch(error => {
-      console.error('Error loading post:', error);
-    });
-});
-  </script>
-</body>
-
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error loading post:", error);
+                    });
+            });
+        </script>
+    </body>
 </html>
-

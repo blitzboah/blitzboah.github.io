@@ -1,128 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>/info</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" type="image/x-icon" href="/static/kek.jpg" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>/info</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="/static/kek.jpg">
-    <style>
-        body {
-            color: #ffffff;
-            line-height: 1.6;
-        }
+        <style>
+            body {
+                color: #ffffff;
+                line-height: 1.6;
+            }
 
-        a {
-            color: #ffffff;
-            text-decoration: none;
-        }
+            a {
+                color: #ffffff;
+                text-decoration: none;
+            }
 
-        a:hover {
-            text-decoration: none;
-        }
+            a:hover {
+                text-decoration: none;
+            }
 
-        #builds-info h2 {
-            margin-bottom: 20px;
-            color: #CCE7FC;
-            padding: 10px;
-            border: 2px solid #1da3cc;
-            display: inline-block;
-        }
+            #builds-info h2 {
+                margin-bottom: 20px;
+                color: #cce7fc;
+                padding: 10px;
+                border: 2px solid #1da3cc;
+                display: inline-block;
+            }
 
-        #builds-info p {
-            color: #fff;
-            margin: 15px 0;
-            padding: 8px;
-        }
+            #builds-info p {
+                color: #fff;
+                margin: 15px 0;
+                padding: 8px;
+            }
 
-        #builds-info .url-container a {
-            color: #fff;
-            transition: all 0.2s ease;
-        }
+            #builds-info .url-container a {
+                color: #fff;
+                transition: all 0.2s ease;
+            }
 
-        #builds-info .url-container strong {
-            color: #00BFFF;
-            transition: all 0.2s ease;
-        }
+            #builds-info .url-container strong {
+                color: #00bfff;
+                transition: all 0.2s ease;
+            }
 
-        #builds-info .url-container a:hover {
-            background: #CCE7FC;
-            color: #000000;
-            padding: 2px 5px;
-            transform: scale(1.05);
-            text-shadow: none;
-        }
+            #builds-info .url-container a:hover {
+                background: #cce7fc;
+                color: #000000;
+                padding: 2px 5px;
+                transform: scale(1.05);
+                text-shadow: none;
+            }
 
-        #builds-info .desc-container {
-            border-top: 2px dashed #CCE7FC;
-            margin-top: 20px;
-            padding-top: 15px;
-        }
+            #builds-info .desc-container {
+                border-top: 2px dashed #cce7fc;
+                margin-top: 20px;
+                padding-top: 15px;
+            }
 
-        #builds-info .desc-container strong {
-            color: #00bfff;
-        }
+            #builds-info .desc-container strong {
+                color: #00bfff;
+            }
 
-        #builds-info h2:hover {
-            transition: all 0.2s ease;
-        }
-    </style>
-</head>
+            #builds-info h2:hover {
+                transition: all 0.2s ease;
+            }
+        </style>
+    </head>
 
-<body>
-    <div class="cont">
-        <div class="nav">
-            <p><a href="../index.html">builds</a>
-                <a href="posts.html">post</a>
-                <a href="about.html">about</a>
-            </p>
-        </div>
-        <div class="directory-structure" page="///">
-            <div class="directory-content">
-            <ul>
-                <li id="builds-info">
-                    <!-- info -->
-                </li>
-            </ul>
+    <body>
+        <div class="cont">
+            <div class="nav">
+                <p>
+                    <a href="../index.html">builds</a>
+                    <a href="posts.html">post</a>
+                    <a href="about.html">about</a>
+                </p>
+            </div>
+            <div class="directory-structure" page="///">
+                <div class="directory-content">
+                    <ul>
+                        <li id="builds-info">
+                            <!-- info -->
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const urlParams = new URLSearchParams(window.location.search);
-            const buildName = urlParams.get('build');
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const urlParams = new URLSearchParams(window.location.search);
+                const buildName = urlParams.get("build");
 
-            fetch('../json/builds.json')
-                .then(response => response.json())
-                .then(data => {
-                    const build = data.builds.find(p => p.name === buildName);
-                    if (build) {
-                        const buildInfo = document.getElementById('builds-info');
+                fetch("../json/builds.json")
+                    .then((response) => response.json())
+                    .then((data) => {
+                        const build = data.builds.find(
+                            (p) => p.name === buildName,
+                        );
+                        if (build) {
+                            const buildInfo =
+                                document.getElementById("builds-info");
 
-                        let mediaHTML = '';
+                            let mediaHTML = "";
 
-                        if (build.video && build.video.length > 0) {
-                            build.video.forEach(videoSrc => {
-                                mediaHTML += `
+                            if (build.video && build.video.length > 0) {
+                                build.video.forEach((videoSrc) => {
+                                    mediaHTML += `
                                 <div class="video-container">
                                     <video autoplay muted loop playsinline controls>
                                         <source src="${videoSrc}" type="video/mp4">
                                     </video>
                                 </div>
                                 `;
-                            });
-                        }
+                                });
+                            }
 
-                        if (build.image && build.image.length > 0) {
-                            mediaHTML += '<div class="image-container">';
-                            build.image.forEach(imgSrc => {
-                                mediaHTML += `<img src="${imgSrc}" alt="${build.name}" />`;
-                            });
-                            mediaHTML += '</div>';
-                        }
+                            if (build.image && build.image.length > 0) {
+                                mediaHTML += '<div class="image-container">';
+                                build.image.forEach((imgSrc) => {
+                                    mediaHTML += `<img src="${imgSrc}" alt="${build.name}" />`;
+                                });
+                                mediaHTML += "</div>";
+                            }
 
-                        buildInfo.innerHTML = `
+                            buildInfo.innerHTML = `
                             <h2>${build.name}</h2> <br>
                             <div class="url-container">
                                 <p><strong>tech:</strong> ${build.tech}</p>
@@ -135,10 +139,9 @@
                             </div>
                             ${mediaHTML}
                         `;
-                    }
-                });
-        });
-    </script>
-</body>
-
+                        }
+                    });
+            });
+        </script>
+    </body>
 </html>
