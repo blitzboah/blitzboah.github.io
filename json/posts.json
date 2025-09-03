@@ -1,9 +1,0 @@
-{
-  "posts": [
-    {
-      "title": "bleh",
-      "text": "im tired boss",
-      "image": ["../static/bleh.png"]
-    }
-  ]
-}
