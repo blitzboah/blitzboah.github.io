@@ -4,21 +4,15 @@
       "name": "type-throttle",
       "url": "https://blitz31.itch.io/type-throttle",
       "tech": "unity, c#",
-      "description": "a typing game but with cars 3D yessir. basically you are racing with a bot car that competes with you and type to beat that bot. it can be adaptive based on user's choice for more competitive feeling. it runs on browswer yay :D",
+      "description": "a typing game but with cars in 3D yessir. it runs on browser yay :D",
       "video": ["../static/type-throttle.mp4"]
     },
     {
       "name": "pongz",
       "url": "https://github.com/blitzboah/pongz",
       "tech": "zig, raylib",
-      "description": "pong game with time stop ability ~za warudooo~",
+      "description": "pong game with a time stopping ability ~za warudooo~",
       "video": ["../static/pongz.mp4"]
-    },
-    {
-      "name": "space-game",
-      "url": "https://blitz31.itch.io/space-game",
-      "tech": "unity, c#",
-      "description": "a simple space game, where you control your spaceship and dodge incoming asteroids, yeah thats it. tbh this game is very poorly made cuz i didnt knew shit when i was doing ts"
     },
     {
       "name": "hardimages",
@@ -31,35 +25,28 @@
       "name": "memedb",
       "url": "https://memedb69.vercel.app",
       "tech": "react js, indexeddb",
-      "description": "a database for your memes, for quick access of memes.",
+      "description": "a database for your memes",
       "image": ["../static/memedb.jpeg"]
     },
     {
       "name": "blogtube",
       "url": "https://github.com/blitzboah/blogtube",
       "tech": "python, pytorch, ffmpeg, jsoup, coqui tts",
-      "description": "blog turned into yt shorts or vidoes. enter the blog link, it will scrape the blog, then it will summarize or keep it as is, depending upon your choice. then uses coqui tts for TTS lamao, then it slaps all the content on a video with subtitles using ffmpeg",
-      "video": ["../static/blogtube-1.mp4", "static/blogtube-2.mp4"]
-    },
-    {
-      "name": "watchdawg",
-      "url": "https://github.com/blitzboah/watchdawg",
-      "tech": "js",
-      "description": "just a popup extension",
-      "image": ["../static/watchdawg.png"]
+      "description": "turns blogs into yt shorts or videos",
+      "video": ["../static/blogtube-1.mp4"]
     },
     {
       "name": "raytracing",
       "url": "https://github.com/blitzboah/raytracing",
       "tech": "java",
-      "description": "raytracing. followed a book named - raytracing in one weekend. i used java to feel something and generated really cool renders :D, this was suggested by ludwigABAP on x dot com. thanks to him, i keep learning new stuff. also if you wanna try this i suggest pls dont, i takes a lot of time to render, as its not multithreaded.",
+      "description": "raytracing. dont try this out, not multithreaded",
       "image": ["../static/r2.png", "../static/r3.png", "../static/r4.png", "../static/r5.png"]
     },
     {
       "name": "gitz",
       "url": "https://github.com/blitzboah/gitz",
       "tech": "java, ffmpeg, chafa",
-      "description": "an attempt at git implementation to learn its internals, following 'write yourself a git', with commit images for shits and giggles",
+      "description": "made this to learn about git internal workings. added a commit with image as a 'feature' idk?",
       "video": ["../static/gitz.mp4"]
     }
   ]
