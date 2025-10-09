@@ -22,11 +22,11 @@
       "image": ["../static/hardimages.png"]
     },
     {
-      "name": "memedb",
-      "url": "https://memedb69.vercel.app",
-      "tech": "react js, indexeddb",
-      "description": "a database for your memes",
-      "image": ["../static/memedb.jpeg"]
+      "name": "tattoo-you",
+      "url": "https://github.com/blitzboah/tattoo-you",
+      "tech": "js, chrome apis, indexeddb",
+      "description": "an extension for quick access of images/memes",
+      "video": ["../static/tattoo-you.mp4"]
     },
     {
       "name": "blogtube",
