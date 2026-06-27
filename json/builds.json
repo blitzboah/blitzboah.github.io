@@ -15,13 +15,6 @@
       "video": ["../static/pongz.mp4"]
     },
     {
-      "name": "hardimages",
-      "url": "https://hardimages.vercel.app",
-      "tech": "react js, spring boot, postgresql, aws s3, google oauth 2.0",
-      "description": "a collection of the images that goes really hard",
-      "image": ["../static/hardimages.png"]
-    },
-    {
       "name": "tattoo-you",
       "url": "https://github.com/blitzboah/tattoo-you",
       "tech": "js, chrome apis, indexeddb",
@@ -29,18 +22,16 @@
       "video": ["../static/tattoo-you.mp4"]
     },
     {
-      "name": "blogtube",
-      "url": "https://github.com/blitzboah/blogtube",
-      "tech": "python, pytorch, ffmpeg, jsoup, coqui tts",
-      "description": "turns blogs into yt shorts or videos",
-      "video": ["../static/blogtube-1.mp4"]
-    },
-    {
       "name": "raytracing",
       "url": "https://github.com/blitzboah/raytracing",
       "tech": "java",
       "description": "raytracing. dont try this out, not multithreaded",
-      "image": ["../static/r2.png", "../static/r3.png", "../static/r4.png", "../static/r5.png"]
+      "image": [
+        "../static/r2.png",
+        "../static/r3.png",
+        "../static/r4.png",
+        "../static/r5.png"
+      ]
     },
     {
       "name": "gitz",
@@ -48,6 +39,12 @@
       "tech": "java, ffmpeg, chafa",
       "description": "made this to learn about git internal workings. added a commit with image as a 'feature' idk?",
       "video": ["../static/gitz.mp4"]
+    },
+    {
+      "name": "gd",
+      "url": "https://github.com/blitzboah/gd",
+      "tech": "zig, raylib",
+      "description": "a repository where i have implemented some maths & physics that are used in game dev :D"
     }
   ]
 }
