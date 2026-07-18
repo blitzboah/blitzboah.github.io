@@ -33,8 +33,14 @@
             </div>
             <div class="directory-structure" page="~">
                 <div class="directory-content">
-                    <div class="button-container">
-                        <img src="static/button.gif" />
+                    <div class="button-container" onclick="copyButtonCode()">
+                        <img
+                            src="static/button.gif"
+                            width="88"
+                            height="31"
+                            alt="blitzb.com"
+                        />
+                        <span class="copy-label">[ copy ]</span>
                     </div>
                     <ul>
                         <li class="blink-arrow">
@@ -128,4 +134,19 @@
     </body>
 
     <script src="src/pikachu.js"></script>
+    <script>
+        function copyButtonCode() {
+            const code = `<a href="https://blitzb.com"><img src="https://blitzb.com/static/button.gif" alt="blitzb.com"></a>`;
+            navigator.clipboard.writeText(code).then(() => {
+                const label = document.querySelector(".copy-label");
+                const original = label.textContent;
+                label.textContent = "[ copied! ]";
+                label.classList.add("copied");
+                setTimeout(() => {
+                    label.textContent = original;
+                    label.classList.remove("copied");
+                }, 1500);
+            });
+        }
+    </script>
 </html>
