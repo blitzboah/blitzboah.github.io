@@ -8,5 +8,20 @@
     "name": "nixos",
     "url": "https://nixos.org/",
     "img": "https://melqtx.com/images/button_nix.gif"
+  },
+  {
+    "name": "zed",
+    "url": "https://zed.dev/",
+    "img": "https://melqtx.com/images/zed-88x31.png"
+  },
+  {
+    "name": "ghostty",
+    "url": "https://ghostty.com/",
+    "img": "https://melqtx.com/images/ghostty-88x31.png"
+  },
+  {
+    "name": "minecraft",
+    "url": "https://www.meteorsmp.com/",
+    "img": "/static/mc.webp"
   }
 ]

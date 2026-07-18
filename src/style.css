@@ -236,7 +236,7 @@ body::-webkit-scrollbar {
 .frens-track {
     display: flex;
     width: max-content;
-    animation: scroll-frens 15s linear infinite;
+    animation: scroll-frens 10s linear infinite;
 }
 
 .frens-track img {
