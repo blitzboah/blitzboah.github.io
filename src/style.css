@@ -103,7 +103,7 @@ body::-webkit-scrollbar {
     box-sizing: border-box;
 }
 
-.nav a:hover {
+.nav > p > a:hover {
     border: 2px solid #ffffff;
     background: #ffffff;
     color: #000000;
@@ -192,12 +192,20 @@ body::-webkit-scrollbar {
     transform: scale(1.05);
 }
 
+.copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 88px;
+    height: 31px;
+}
 .button-container {
     top: 10px;
     right: 10px;
     position: absolute;
     display: inline-block;
-    cursor: pointer;
+    z-index: 1;
 }
 .copy-label {
     position: absolute;
@@ -216,6 +224,47 @@ body::-webkit-scrollbar {
 }
 .copy-label.copied {
     color: #ffbf00;
+}
+
+.frens-carousel {
+    margin-top: auto;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.frens-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-frens 15s linear infinite;
+}
+
+.frens-track img {
+    display: block;
+    flex-shrink: 0;
+}
+
+.frens-carousel:hover .frens-track {
+    animation-play-state: paused;
+}
+
+.frens-track a:hover img {
+    transform: scale(1.1);
+}
+
+@keyframes scroll-frens {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .frens-carousel {
+        display: none;
+    }
 }
 
 .image-container {

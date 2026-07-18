@@ -30,16 +30,21 @@
                     <a href="src/posts.html">post</a>
                     <a href="src/about.html">about</a>
                 </p>
+
+                <div class="frens-carousel">
+                    <div class="frens-track" id="frens-track"></div>
+                </div>
             </div>
             <div class="directory-structure" page="~">
                 <div class="directory-content">
-                    <div class="button-container" onclick="copyButtonCode()">
-                        <img
-                            src="static/button.gif"
-                            width="88"
-                            height="31"
-                            alt="blitzb.com"
-                        />
+                    <div class="button-container">
+                        <button
+                            onclick="copyButtonCode()"
+                            aria-label="copy button code"
+                            class="copy-btn"
+                        >
+                            <img src="static/button.gif" width="88" height="31" alt="blitzb.com" />
+                        </button>
                         <span class="copy-label">[ copy ]</span>
                     </div>
                     <ul>
@@ -134,6 +139,7 @@
     </body>
 
     <script src="src/pikachu.js"></script>
+    <script src="src/frens.js"></script>
     <script>
         function copyButtonCode() {
             const code = `<a href="https://blitzb.com"><img src="https://blitzb.com/static/button.gif" alt="blitzb.com"></a>`;
