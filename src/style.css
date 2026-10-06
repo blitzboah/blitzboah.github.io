@@ -1,6 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
+:root {
+    --ink: #07090f;
+    --panel: #0d111b;
+    --line: #65708a;
+    --paper: #eef4ff;
+    --muted: #8993aa;
+    --cyan: #63e6ff;
+    --mint: #91ffbf;
+    --amber: #ffbf69;
+    --page-tint: 99, 230, 255;
+}
+
+body.theme-posts {
+    --page-tint: 216, 179, 255;
+}
+
+body.theme-about {
+    --page-tint: 145, 255, 191;
+}
+
 *,
 *::before,
 *::after {
@@ -30,9 +50,97 @@ body {
     image-rendering: pixelated;
     text-rendering: geometricPrecision;
     line-height: 1.6;
-    background-color: #000000;
-    color: #ffffff;
-    text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.2);
+    background-color: var(--ink);
+    background-image:
+        radial-gradient(
+            circle at 82% 18%,
+            rgba(var(--page-tint), 0.13),
+            transparent 28rem
+        ),
+        radial-gradient(
+            circle at 20% 85%,
+            rgba(var(--page-tint), 0.055),
+            transparent 24rem
+        );
+    background-size: cover;
+    background-position: center;
+    color: var(--paper);
+    text-shadow:
+        1px 0 0 rgba(255, 90, 90, 0.12),
+        -1px 0 0 rgba(80, 220, 255, 0.12),
+        0 0 7px rgba(238, 244, 255, 0.12);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 998;
+    pointer-events: none;
+    box-shadow: inset 0 0 110px 20px rgba(0, 0, 0, 0.72);
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    pointer-events: none;
+    background-image:
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 2px,
+            rgba(0, 0, 0, 0.28) 3px,
+            rgba(0, 0, 0, 0.28) 4px
+        ),
+        repeating-linear-gradient(
+            to right,
+            rgba(255, 40, 40, 0.025) 0,
+            rgba(255, 40, 40, 0.025) 1px,
+            rgba(70, 255, 160, 0.018) 1px,
+            rgba(70, 255, 160, 0.018) 2px,
+            rgba(70, 150, 255, 0.025) 2px,
+            rgba(70, 150, 255, 0.025) 3px
+        );
+}
+
+body.crt-off {
+    text-shadow: none;
+}
+
+body.crt-off::before,
+body.crt-off::after {
+    display: none;
+}
+
+body.crt-off .cont {
+    box-shadow:
+        10px 10px 0 rgba(var(--page-tint), 0.13),
+        -5px -5px 0 rgba(var(--page-tint), 0.055);
+}
+
+.crt-toggle {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 1001;
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    border: 1px solid var(--paper);
+    background: var(--paper);
+    cursor: pointer;
+}
+
+.crt-toggle[aria-pressed="false"] {
+    background: var(--ink);
+    opacity: 0.45;
+}
+
+.crt-toggle:focus-visible {
+    outline: 1px solid var(--paper);
+    outline-offset: 2px;
 }
 
 body::-webkit-scrollbar {
@@ -48,27 +156,31 @@ body::-webkit-scrollbar {
 }
 
 .cont {
+    position: relative;
     display: flex;
     flex-direction: row;
-    max-width: 100%;
-    min-height: 95vh;
+    max-width: 1500px;
+    min-height: calc(100vh - 40px);
     height: 100%;
     width: 100%;
-    padding: 20px;
-    border: 2px solid #ffffff;
+    gap: 16px;
+    padding: 14px;
+    border: 2px solid var(--line);
+    background: rgba(7, 9, 15, 0.9);
     box-shadow:
-        8px 8px 0 rgba(255, 255, 255, 0.1),
-        -8px -8px 0 rgba(255, 255, 255, 0.1);
+        inset 0 0 55px rgba(0, 0, 0, 0.52),
+        10px 10px 0 rgba(var(--page-tint), 0.13),
+        -5px -5px 0 rgba(var(--page-tint), 0.055);
     image-rendering: pixelated;
     overflow: hidden;
 }
 
 .nav {
-    width: 10%;
-    margin-right: 20px;
+    width: clamp(160px, 14vw, 210px);
+    flex-shrink: 0;
     padding: 10px;
-    background: #000000;
-    border: 2px solid #ffffff;
+    background: var(--panel);
+    border: 1px solid var(--line);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -76,40 +188,47 @@ body::-webkit-scrollbar {
 
 .nav::before {
     font-family: "Press Start 2P", monospace;
-    content: ">>>>>";
-    color: #999999;
+    content: "/";
+    color: var(--mint);
     position: absolute;
     top: -10px;
     left: 10px;
-    background: #000000;
+    background: var(--panel);
     padding: 0 10px;
     font-size: 12px;
 }
 
 .nav a {
-    color: #fff;
+    color: var(--paper);
     font-size: 22px;
     text-decoration: none;
     margin-bottom: 15px;
     padding: 5px 10px;
-    border: 2px solid transparent;
-    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    transition:
+        color 0.15s ease,
+        background 0.15s ease,
+        transform 0.15s ease;
     display: inline-block;
     width: 100%;
 }
 
 .nav > p > a:hover {
-    border: 2px solid #ffffff;
-    background: #ffffff;
-    color: #000000;
-    transform: scale(1.05);
+    border-left-color: var(--mint);
+    background: rgba(145, 255, 191, 0.1);
+    color: var(--mint);
+    transform: translateX(4px);
 }
 
 .directory-structure {
     position: relative;
-    width: 90%;
-    border: 2px solid #ffffff;
-    background: #000000;
+    width: auto;
+    border: 1px solid var(--line);
+    background: linear-gradient(
+        135deg,
+        rgba(13, 17, 27, 0.97),
+        rgba(7, 9, 15, 0.97)
+    );
     padding: 20px;
     flex: 1;
     overflow: visible;
@@ -118,11 +237,11 @@ body::-webkit-scrollbar {
 .directory-structure::before {
     font-family: "Press Start 2P", monospace;
     content: attr(page);
-    color: #999999;
+    color: var(--cyan);
     position: absolute;
     top: -12px;
     left: 10px;
-    background: #000000;
+    background: var(--panel);
     padding: 0 10px;
     font-size: 12px;
     z-index: 10;
@@ -142,10 +261,11 @@ body::-webkit-scrollbar {
     list-style: none;
     margin: 0;
     padding-left: 20px;
+    border-left: 1px dashed rgba(99, 230, 255, 0.22);
 }
 
 .directory-structure li {
-    color: #00bfff;
+    color: var(--cyan);
     position: relative;
     padding-left: 20px;
     margin-bottom: 15px;
@@ -159,7 +279,7 @@ body::-webkit-scrollbar {
     content: ">";
     position: absolute;
     left: 0;
-    color: #ffffff;
+    color: var(--mint);
 }
 
 .directory-structure li.blink-arrow:hover {
@@ -167,9 +287,11 @@ body::-webkit-scrollbar {
 }
 
 .directory-structure a {
-    color: #ffffff;
+    color: var(--paper);
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition:
+        color 0.15s ease,
+        background 0.15s ease;
     display: inline-block;
     padding: 2px 5px;
     font-size: 22px;
@@ -177,9 +299,9 @@ body::-webkit-scrollbar {
 }
 
 .directory-structure a:hover {
-    background: #cce7fc;
-    color: #000000;
-    transform: scale(1.05);
+    background: var(--cyan);
+    color: var(--ink);
+    text-shadow: none;
 }
 
 .copy-btn {
@@ -203,7 +325,7 @@ body::-webkit-scrollbar {
     left: 50%;
     transform: translateX(-50%);
     font-size: 0.7rem;
-    color: #b6ffcc;
+    color: var(--mint);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.15s ease;
@@ -213,7 +335,7 @@ body::-webkit-scrollbar {
     opacity: 1;
 }
 .copy-label.copied {
-    color: #ffbf00;
+    color: var(--amber);
 }
 
 .frens-carousel {
@@ -221,6 +343,8 @@ body::-webkit-scrollbar {
     width: 100%;
     overflow: hidden;
     position: relative;
+    padding-top: 10px;
+    border-top: 1px dashed var(--line);
 }
 
 .frens-track {
@@ -232,6 +356,7 @@ body::-webkit-scrollbar {
 .frens-track img {
     display: block;
     flex-shrink: 0;
+    filter: saturate(0.8) contrast(1.08);
 }
 
 .frens-carousel:hover .frens-track {
@@ -240,6 +365,7 @@ body::-webkit-scrollbar {
 
 .frens-track a:hover img {
     transform: scale(1.1);
+    filter: none;
 }
 
 @keyframes scroll-frens {
@@ -299,6 +425,7 @@ body::-webkit-scrollbar {
 
     .cont {
         flex-direction: column;
+        gap: 12px;
         min-height: auto;
         height: calc(100vh - 10px);
         padding: 10px;
@@ -307,7 +434,7 @@ body::-webkit-scrollbar {
     .nav {
         width: 100%;
         margin-right: 0;
-        margin-bottom: 15px;
+        margin-bottom: 0;
         flex-direction: row;
         flex-wrap: wrap;
         padding: 8px;
@@ -351,7 +478,7 @@ body::-webkit-scrollbar {
         font-size: 10px;
         top: -10px;
         z-index: 30;
-        background: #000000;
+        background: var(--panel);
         position: absolute;
     }
 
@@ -367,12 +494,12 @@ body::-webkit-scrollbar {
     }
 
     .directory-content::-webkit-scrollbar-track {
-        background: #000000;
-        border: 1px solid #ffffff;
+        background: var(--ink);
+        border: 1px solid var(--line);
     }
 
     .directory-content::-webkit-scrollbar-thumb {
-        background: #ffffff;
+        background: var(--paper);
         border-radius: 0;
     }
 
@@ -411,6 +538,7 @@ body::-webkit-scrollbar {
 
     .cont {
         padding: 8px;
+        gap: 10px;
         border-width: 1px;
         box-shadow:
             4px 4px 0 rgba(255, 255, 255, 0.1),
@@ -419,7 +547,7 @@ body::-webkit-scrollbar {
     }
 
     .nav {
-        margin-bottom: 12px;
+        margin-bottom: 0;
         padding: 6px;
         border-width: 1px;
     }
