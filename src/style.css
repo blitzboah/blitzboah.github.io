@@ -20,7 +20,6 @@ body {
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
-    margin: 0;
     padding: 20px;
     font-family: "IBM Plex Mono", monospace;
     font-size: 22px;
@@ -34,7 +33,6 @@ body {
     background-color: #000000;
     color: #ffffff;
     text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.2);
-    background-size: 20px 20px;
 }
 
 body::-webkit-scrollbar {
@@ -74,7 +72,6 @@ body::-webkit-scrollbar {
     position: relative;
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
 }
 
 .nav::before {
@@ -93,14 +90,12 @@ body::-webkit-scrollbar {
     color: #fff;
     font-size: 22px;
     text-decoration: none;
-    margin-right: 0;
     margin-bottom: 15px;
     padding: 5px 10px;
     border: 2px solid transparent;
     transition: all 0.2s ease;
     display: inline-block;
     width: 100%;
-    box-sizing: border-box;
 }
 
 .nav > p > a:hover {
@@ -116,7 +111,6 @@ body::-webkit-scrollbar {
     border: 2px solid #ffffff;
     background: #000000;
     padding: 20px;
-    margin-bottom: 0;
     flex: 1;
     overflow: visible;
 }
@@ -150,10 +144,6 @@ body::-webkit-scrollbar {
     padding-left: 20px;
 }
 
-.directory-structure > ul {
-    padding-left: 0;
-}
-
 .directory-structure li {
     color: #00bfff;
     position: relative;
@@ -172,7 +162,7 @@ body::-webkit-scrollbar {
     color: #ffffff;
 }
 
-.directory-structure li:hover {
+.directory-structure li.blink-arrow:hover {
     transform: translateX(5px);
 }
 
@@ -261,12 +251,6 @@ body::-webkit-scrollbar {
     }
 }
 
-@media screen and (max-width: 768px) {
-    .frens-carousel {
-        display: none;
-    }
-}
-
 .image-container {
     display: flex;
     flex-wrap: wrap;
@@ -282,7 +266,6 @@ body::-webkit-scrollbar {
     object-fit: cover;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     display: block;
 }
 
@@ -292,10 +275,8 @@ body::-webkit-scrollbar {
 }
 
 .video-container {
-    position: relative;
     width: 100%;
-    margin: 20px 0;
-    margin-bottom: 10px;
+    margin: 20px 0 10px;
 }
 
 .video-container video {
@@ -306,9 +287,8 @@ body::-webkit-scrollbar {
 }
 
 @media screen and (max-width: 768px) {
-    html,
-    body {
-        overflow: hidden;
+    .frens-carousel {
+        display: none;
     }
 
     body {
@@ -322,7 +302,6 @@ body::-webkit-scrollbar {
         min-height: auto;
         height: calc(100vh - 10px);
         padding: 10px;
-        overflow: hidden;
     }
 
     .nav {
@@ -366,7 +345,6 @@ body::-webkit-scrollbar {
         flex-direction: column;
         height: calc(100vh - 135px);
         min-height: 300px;
-        position: relative;
     }
 
     .directory-structure::before {
@@ -458,7 +436,6 @@ body::-webkit-scrollbar {
         border-width: 1px;
         height: calc(100vh - 100px);
         min-height: 250px;
-        position: relative;
         z-index: 20;
     }
 
