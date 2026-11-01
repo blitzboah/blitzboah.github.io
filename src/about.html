@@ -29,6 +29,39 @@
     .directory-structure a:hover{
         background: #B6FFCC;
     }
+    .kanring {
+        --ring-accent: #ff8fab;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+    }
+    .kanring a {
+        color: var(--ring-accent);
+        font-size: 16px;
+        white-space: nowrap;
+    }
+    .kanring a[rel] {
+        transition: color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+    }
+    .kanring a[rel="prev"]:hover {
+        transform: translateX(-3px);
+    }
+    .kanring a[rel="next"]:hover {
+        transform: translateX(3px);
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .kanring a[rel]:hover {
+            transform: none;
+        }
+    }
+    .kanring a:hover {
+        background: var(--ring-accent);
+        color: var(--ink);
+    }
+    .kanring a:focus-visible {
+        outline: 1px dashed var(--ring-accent);
+        outline-offset: 3px;
+    }
     </style>
     <body class="theme-about">
         <div class="cont">
@@ -65,6 +98,11 @@
                         </p>
                     <a href="https://github.com/blitzboah" target="_blank">github</a><br>
                     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=blitzboi31@gmail.com" target="_blank">mail</a>
+                    <p class="kanring">
+                        <a href="https://kan.sh/ring/blitz/prev" rel="prev" aria-label="Previous site">←──</a>
+                        <a href="https://kan.sh/ring/">[ kanring ]</a>
+                        <a href="https://kan.sh/ring/blitz/next" rel="next" aria-label="Next site">──→</a>
+                    </p>
                 </div>
             </div>
         </div>
